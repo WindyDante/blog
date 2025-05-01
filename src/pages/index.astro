@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.vue';
+import Bio from '../components/Bio.vue';
+import ArticleCard from '../components/ArticleCard.vue';
+import Footer from '../components/Footer.vue';
+import { posts } from '../data/posts.js';
+
+// Get the latest 3 posts
+const recentPosts = [...posts].sort((a, b) => 
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+).slice(0, 3);
+
+const siteName = "东风";
+---
+
+<Layout title={siteName} description="A personal minimalist blog">
+  <Navigation siteName={siteName} client:load />
+  
+  <main>
+    <Bio
+      name="EastWind"
+      description="你好，我是后端开发大厨，擅长Java炒粉、Go炒面"
+      avatarUrl="/avatar.png"
+      links={[
+        {name:"Index",url:"https://ew.windydante.top/"},
+        { name: "GitHub", url: "https://github.com/WindyDante" }
+      ]}
+      client:visible
+    />
+    
+    <section class="recent-posts">
+      <h2 class="section-title">Recent Posts</h2>
+      <div class="posts-grid">
+        {recentPosts.map(post => (
+          <ArticleCard post={post} client:visible />
+        ))}
+      </div>
+      <div class="view-all">
+        <a href="/blog">View all posts →</a>
+      </div>
+    </section>
+  </main>
+  
+  <Footer siteName={siteName} client:visible />
+</Layout>
+
+<style>
+  .section-title {
+    margin: 2rem 0 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .view-all {
+    margin-top: 2rem;
+    text-align: right;
+  }
+</style>

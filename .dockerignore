@@ -1,0 +1,8 @@
+# 排除可能导致权限问题的文件和目录
+node_modules
+.git
+.vscode
+.idea
+*.log
+.DS_Store
+Thumbs.db

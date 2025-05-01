@@ -1,0 +1,119 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "A minimalist blog" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/markdown.css">
+    <script is:inline>
+      // Immediately set theme on page load to prevent flash
+      (function() {
+        const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        document.documentElement.style.backgroundColor = theme === 'dark' ? '#1a1a1a' : '#ffffff';
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-bg: #ffffff;
+    --color-text: #2c3338;
+    --color-text-light: #505965;
+    --color-border: #eaedef;
+    --color-accent: #333333;
+    --font-serif: 'Lora', Georgia, serif;
+    --font-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --max-width: 720px;
+  }
+
+  html.dark {
+    --color-bg: #1a1a1a;
+    --color-text: #e6e9ec;
+    --color-text-light: #9ba6b2;
+    --color-border: #2a2a2a;
+    --color-accent: #e6e9ec;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  a {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-text-light);
+  }
+
+  a:hover {
+    border-color: var(--color-text);
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    margin: 1.5rem 0;
+    font-size: 1.125rem;
+  }
+
+  article p {
+    font-family: var(--font-serif);
+    line-height: 1.75;
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.vue';
+import ArticleContent from '../../components/ArticleContent.vue';
+import Footer from '../../components/Footer.vue';
+import { posts } from '../../data/posts.js';
+
+export function getStaticPaths() {
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const siteName = "EastWind";
+---
+
+<Layout title={`${post.title} | ${siteName}`} description={post.excerpt}>
+  <Navigation siteName={siteName} client:load />
+  
+  <main>
+    <a href="/blog" class="back-link" onclick="window.location.href='/blog'; return false;">← Back to all posts</a>
+    
+    <ArticleContent title={post.title} date={post.date} tags={post.tags} client:visible>
+      <div set:html={post.content} />
+    </ArticleContent>
+  </main>
+  
+  <Footer siteName={siteName} client:visible />
+</Layout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-size: 0.875rem;
+  }
+</style>

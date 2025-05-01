@@ -1,0 +1,39 @@
+- class_name: 友情链接
+  class_desc: 不要小瞧我们啊，这就是友情的力量！
+  link_list:
+    - name: Akilarの糖果屋
+      url: https://akilar.top/
+      avatar: https://npm.elemecdn.com/akilar-friends@latest/avatar/akilar.top.jpg
+      descr: 欢迎光临糖果屋
+    - name: 葱苓sama
+      url: https://blog.ciraos.top
+      avatar: https://blog.ciraos.top/avatar1.avif
+      descr: "Don't worry, Be happy."
+    - name: "Redish101 Blog"
+      url: "https://blog.redish101.top"
+      descr: "学生 人 活的"
+      avatar: https://github.com/redish101.png
+    - name: 光匿
+      url: http://rayhide.fun
+      descr: "道生一，一生二，二生三，三生万物"
+      avatar: "https://s21.ax1x.com/2024/10/11/pAYnVbR.jpg"
+    - name: 煮雪话河山
+      url: https://blog.cent1pedee.top/
+      avatar: https://img.cent1pedee.top/img/wechat.jpg
+      descr: 如月之恒，如日之升。
+    - name: 清羽飞扬
+      url: https://blog.liushen.fun/
+      avatar: https://blog.liushen.fun/info/avatar.ico
+      descr: "柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜"
+    - name: 鹊楠的小窝
+      url: https://blog.quenan.love/
+      avatar: https://i.p-i.vip/43/20240913-66e403f2331ec.webp
+      descr: 世界那么大，我想去看看
+    - name: 梦溯·镜影
+      url: https://yumetsuki.moe/
+      avatar: https://img-r2.yumetsuki.moe/q78kg/avatar.webp
+      descr: sleeeeep
+    - name: Marcus
+      url: https://blog.marcus233.top/
+      avatar: https://img01.anheyu.com/useruploads/8/2023/08/09/64d307c2d8873.png
+      descr: 人间值得，未来可期

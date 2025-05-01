@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.vue';
+import ArticleCard from '../../components/ArticleCard.vue';
+import Footer from '../../components/Footer.vue';
+import { posts } from '../../data/posts.js';
+
+// Sort posts by date (newest first)
+const sortedPosts = [...posts].sort((a, b) => 
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+
+const siteName = "EastWind";
+---
+
+<Layout title={`Blog | ${siteName}`} description="Articles on design, technology, and minimalism">
+  <Navigation siteName={siteName} client:load />
+  
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">Blog</h1>
+      <p class="page-description">Simplicity.</p>
+    </header>
+    
+    <section class="posts">
+      {sortedPosts.map(post => (
+        <ArticleCard post={post} client:visible />
+      ))}
+    </section>
+  </main>
+  
+  <Footer siteName={siteName} client:visible />
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: 3rem;
+  }
+  
+  .page-title {
+    margin: 0 0 0.5rem;
+  }
+  
+  .page-description {
+    color: var(--color-text-light);
+    margin: 0;
+  }
+</style>
