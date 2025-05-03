@@ -5,14 +5,16 @@
   "private": true,
   "packageManager": "pnpm@8.15.4",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "generate-rss": "node --input-type=module -e \"import('./src/utils/rssGenerator.js').then(m => m.writeRSSFile(m.generateRSS()))\"",
+    "dev": "npm run generate-rss && astro dev",
+    "build": "npm run generate-rss && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.2.5",
     "@astrojs/vue": "^4.0.8",
+    "astro": "^5.2.5",
+    "js-yaml": "^4.1.0",
     "vue": "^3.4.21"
   }
 }

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>东风</title>
+  <link>https://1wind.cn</link>
+  <description>东风的个人博客</description>
+  <language>zh-cn</language>
+  <atom:link href="https://1wind.cn/rss.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>数据结构</title>
+    <link>https://1wind.cn/blog/数据结构</link>
+    <guid>https://1wind.cn/blog/数据结构</guid>
+    <pubDate>Wed, 30 Apr 2025 09:11:05 GMT</pubDate>
+    <description><![CDATA[基本概念  数据是信息的载体，是描述客观事物属性的数、字符及所有能输入到计算机中并被计算机程序识别(二进制0和1)和...]]></description>
+  </item>
+  <item>
+    <title>2024年终总结</title>
+    <link>https://1wind.cn/blog/2024年终总结</link>
+    <guid>https://1wind.cn/blog/2024年终总结</guid>
+    <pubDate>Tue, 31 Dec 2024 12:32:05 GMT</pubDate>
+    <description><![CDATA[   2024年,不平凡的一年，深有收获，感谢很多人，感谢很多事，学习和成长是对我来说最明显的；  2024年1月...]]></description>
+  </item>
+  <item>
+    <title>计算机基础速成</title>
+    <link>https://1wind.cn/blog/计算机基础</link>
+    <guid>https://1wind.cn/blog/计算机基础</guid>
+    <pubDate>Fri, 20 Dec 2024 09:11:05 GMT</pubDate>
+    <description><![CDATA[ 计算机基础  世界上第一台电子计算机ENIAC 1946年诞生于美国  四代主要元器件：  1. 电子管...]]></description>
+  </item>
+  <item>
+    <title>如何将自己手写的vue3项目自动化部署及自动化合并友链</title>
+    <link>https://1wind.cn/blog/如何将自己手写的vue3项目自动化部署及自动化合并友链</link>
+    <guid>https://1wind.cn/blog/如何将自己手写的vue3项目自动化部署及自动化合并友链</guid>
+    <pubDate>Fri, 11 Oct 2024 06:22:27 GMT</pubDate>
+    <description><![CDATA[ 手动部署项目  有时候我们写了一个作品，但是没有服务器，穷啊，也不是经常用的到服务器，如果不考虑网络速度的情况下...]]></description>
+  </item>
+  <item>
+    <title>vscode安装想要的字体</title>
+    <link>https://1wind.cn/blog/vscode安装想要的字体</link>
+    <guid>https://1wind.cn/blog/vscode安装想要的字体</guid>
+    <pubDate>Sat, 28 Sep 2024 23:36:26 GMT</pubDate>
+    <description><![CDATA[ 很多时候你会感觉哇，一直用一个字体，真的特别单调或者乏味，甚至于有些同学可能对默认字体不是很喜爱，这里出一个简单的教...]]></description>
+  </item>
+  <item>
+    <title>内功</title>
+    <link>https://1wind.cn/blog/内功</link>
+    <guid>https://1wind.cn/blog/内功</guid>
+    <pubDate>Fri, 13 Sep 2024 06:25:18 GMT</pubDate>
+    <description><![CDATA[  数据的表示考点1：进制转换考点2：码制（原码/反码/补码/移码）考点3：浮点数的表示考点4：逻辑运算 ...]]></description>
+  </item>
+  <item>
+    <title>freemarker基础</title>
+    <link>https://1wind.cn/blog/freemarker基础</link>
+    <guid>https://1wind.cn/blog/freemarker基础</guid>
+    <pubDate>Mon, 02 Sep 2024 07:17:05 GMT</pubDate>
+    <description><![CDATA[ FreeMarker介绍  FreeMarker是一款模版引擎：即一种基于模版和要改变的数据，并用来生成输出文本...]]></description>
+  </item>
+  <item>
+    <title>mongoDB</title>
+    <link>https://1wind.cn/blog/mongoDB</link>
+    <guid>https://1wind.cn/blog/mongoDB</guid>
+    <pubDate>Wed, 28 Aug 2024 05:55:32 GMT</pubDate>
+    <description><![CDATA[  MongoDB概念  MongoDB 是在2007年由DoubleClick公司的几位核心成员开发出的一款分...]]></description>
+  </item>
+  <item>
+    <title>规则引擎Drools</title>
+    <link>https://1wind.cn/blog/规则引擎Drools</link>
+    <guid>https://1wind.cn/blog/规则引擎Drools</guid>
+    <pubDate>Wed, 21 Aug 2024 01:39:10 GMT</pubDate>
+    <description><![CDATA[   规则引擎概述  某电商平台的促销活动，活动规则是根据⽤户购买订单的⾦额给⽤户送相应的积分，购买的越多送的...]]></description>
+  </item>
+  <item>
+    <title>RocketMq基本启动命令</title>
+    <link>https://1wind.cn/blog/RocketMq基本启动命令</link>
+    <guid>https://1wind.cn/blog/RocketMq基本启动命令</guid>
+    <pubDate>Mon, 12 Aug 2024 01:32:36 GMT</pubDate>
+    <description><![CDATA[  本地启动，依次输入->start mqnamesrv.cmdstart mqbroker.cmd -n 127...]]></description>
+  </item>
+  <item>
+    <title>c语言</title>
+    <link>https://1wind.cn/blog/c语言</link>
+    <guid>https://1wind.cn/blog/c语言</guid>
+    <pubDate>Thu, 08 Aug 2024 09:03:28 GMT</pubDate>
+    <description><![CDATA[ 编译与链接  C语言是一门编译型语言，C语言源代码都是文本文件，本身无法执行，必须通过编译器翻译和链接器的链接，...]]></description>
+  </item>
+  <item>
+    <title>高等数学</title>
+    <link>https://1wind.cn/blog/高等数学</link>
+    <guid>https://1wind.cn/blog/高等数学</guid>
+    <pubDate>Sun, 04 Aug 2024 02:02:10 GMT</pubDate>
+    <description><![CDATA[  函数  函数：y=f(x)  x：自变量  f：对应法则  定义域：自变量x的范围  题型一：...]]></description>
+  </item>
+  <item>
+    <title>软件测试</title>
+    <link>https://1wind.cn/blog/软件测试</link>
+    <guid>https://1wind.cn/blog/软件测试</guid>
+    <pubDate>Fri, 14 Jun 2024 13:42:23 GMT</pubDate>
+    <description><![CDATA[ 接口测试  接口测试流程  1. 业务需求分析 2. 看接口文档文档形式：pdf、excel、html、...]]></description>
+  </item>
+  <item>
+    <title>android_Java版</title>
+    <link>https://1wind.cn/blog/android-Java版</link>
+    <guid>https://1wind.cn/blog/android-Java版</guid>
+    <pubDate>Sat, 25 May 2024 11:28:16 GMT</pubDate>
+    <description><![CDATA[   安装安卓  谷歌开发者的中文网站可以直接下载Android Studio，详细的下载页面是https:/...]]></description>
+  </item>
+  <item>
+    <title>Axure9</title>
+    <link>https://1wind.cn/blog/Axure9</link>
+    <guid>https://1wind.cn/blog/Axure9</guid>
+    <pubDate>Wed, 22 May 2024 06:59:57 GMT</pubDate>
+    <description><![CDATA[ Axure9的页面介绍    Axure9的基础功能  菜单栏  !image-2024052222...]]></description>
+  </item>
+  <item>
+    <title>英语语法</title>
+    <link>https://1wind.cn/blog/英语语法</link>
+    <guid>https://1wind.cn/blog/英语语法</guid>
+    <pubDate>Thu, 25 Apr 2024 11:48:01 GMT</pubDate>
+    <description><![CDATA[      单词速记  source 源头  growth 成长  all things 万物 ...]]></description>
+  </item>
+  <item>
+    <title>webSocket的使用</title>
+    <link>https://1wind.cn/blog/webSocket的使用</link>
+    <guid>https://1wind.cn/blog/webSocket的使用</guid>
+    <pubDate>Fri, 05 Apr 2024 15:16:59 GMT</pubDate>
+    <description><![CDATA[ 前段时间做了一个二手平台，上面有个聊天功能，今天就给它写一写，具体页面就不写了，讲一讲功能  webSocket...]]></description>
+  </item>
+  <item>
+    <title>Vue3</title>
+    <link>https://1wind.cn/blog/Vue3</link>
+    <guid>https://1wind.cn/blog/Vue3</guid>
+    <pubDate>Mon, 11 Mar 2024 13:35:33 GMT</pubDate>
+    <description><![CDATA[ 创建Vue3.0工程  使用vue-cli创建  官方文档：`https://cli.vuejs.org/z...]]></description>
+  </item>
+  <item>
+    <title>微信小程序</title>
+    <link>https://1wind.cn/blog/微信小程序</link>
+    <guid>https://1wind.cn/blog/微信小程序</guid>
+    <pubDate>Fri, 01 Mar 2024 04:49:49 GMT</pubDate>
+    <description><![CDATA[ 微信开发者工具  设置外观和代理    点开设置后，就可以进行配置了  编译与预览  !imag...]]></description>
+  </item>
+  <item>
+    <title>nacos集群搭建</title>
+    <link>https://1wind.cn/blog/nacos集群搭建</link>
+    <guid>https://1wind.cn/blog/nacos集群搭建</guid>
+    <pubDate>Sun, 21 Jan 2024 10:16:45 GMT</pubDate>
+    <description><![CDATA[  集群结构图  !image-20240121183949015  其中包含3个nacos节点，然后一个负载...]]></description>
+  </item>
+  <item>
+    <title>SpringCloud</title>
+    <link>https://1wind.cn/blog/SpringCloud</link>
+    <guid>https://1wind.cn/blog/SpringCloud</guid>
+    <pubDate>Sat, 20 Jan 2024 02:10:33 GMT</pubDate>
+    <description><![CDATA[  认识微服务  服务架构演变  单体架构  将业务的所有功能集中在一个项目中开发，打成一个包部署  ...]]></description>
+  </item>
+  <item>
+    <title>MySql基础</title>
+    <link>https://1wind.cn/blog/MySql基础</link>
+    <guid>https://1wind.cn/blog/MySql基础</guid>
+    <pubDate>Tue, 19 Dec 2023 06:52:48 GMT</pubDate>
+    <description><![CDATA[  什么是数据库？  数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。  每个数据库都有...]]></description>
+  </item>
+  <item>
+    <title>若依框架前后端分离</title>
+    <link>https://1wind.cn/blog/若依框架前后端分离</link>
+    <guid>https://1wind.cn/blog/若依框架前后端分离</guid>
+    <pubDate>Mon, 04 Dec 2023 08:33:24 GMT</pubDate>
+    <description><![CDATA[ 启动若依  来到若依的官网：https://www.ruoyi.vip/  !image-202312041...]]></description>
+  </item>
+  <item>
+    <title>Docker</title>
+    <link>https://1wind.cn/blog/Docker</link>
+    <guid>https://1wind.cn/blog/Docker</guid>
+    <pubDate>Tue, 07 Nov 2023 05:38:38 GMT</pubDate>
+    <description><![CDATA[abbrlink: f5f9fa9b date: 2023-11-07 13:38:38 tags:Docker...]]></description>
+  </item>
+  <item>
+    <title>SpringSecurity</title>
+    <link>https://1wind.cn/blog/SpringSecurity</link>
+    <guid>https://1wind.cn/blog/SpringSecurity</guid>
+    <pubDate>Thu, 26 Oct 2023 14:38:08 GMT</pubDate>
+    <description><![CDATA[ SpringSecurity简介  Spring是一个很棒的Java应用开发框架，Spring Security...]]></description>
+  </item>
+  <item>
+    <title>Vue2</title>
+    <link>https://1wind.cn/blog/Vue</link>
+    <guid>https://1wind.cn/blog/Vue</guid>
+    <pubDate>Tue, 19 Sep 2023 00:00:00 GMT</pubDate>
+    <description><![CDATA[Vue核心  搭建Vue环境  先在此处附上Vue的安装教程地址：https://v2.cn.vuejs.org...]]></description>
+  </item>
+  <item>
+    <title>SpringBoot2高级篇</title>
+    <link>https://1wind.cn/blog/SpringBoot2高级篇</link>
+    <guid>https://1wind.cn/blog/SpringBoot2高级篇</guid>
+    <pubDate>Sat, 09 Sep 2023 16:00:00 GMT</pubDate>
+    <description><![CDATA[运维篇  打包与运行  程序的打包与运行（Windows版）  如何打包，打开IDEA，在右侧菜单栏，找到M...]]></description>
+  </item>
+  <item>
+    <title>SpringBoot2基础篇</title>
+    <link>https://1wind.cn/blog/SpringBoot2基础篇</link>
+    <guid>https://1wind.cn/blog/SpringBoot2基础篇</guid>
+    <pubDate>Wed, 06 Sep 2023 16:00:00 GMT</pubDate>
+    <description><![CDATA[小技巧（隐藏指定文件/文件夹）  SpringBoot每次创建时都会携带很多没啥用的文件，可以在设置中进行隐藏，不需...]]></description>
+  </item>
+  <item>
+    <title>Redis实战篇</title>
+    <link>https://1wind.cn/blog/Redis实战篇</link>
+    <guid>https://1wind.cn/blog/Redis实战篇</guid>
+    <pubDate>Sun, 27 Aug 2023 16:00:00 GMT</pubDate>
+    <description><![CDATA[ 短信登录  导入项目  导入SQL  在资料中运行对应的SQL文件即可，其中的表有  表说明  ...]]></description>
+  </item>
+  <item>
+    <title>Redis基础篇</title>
+    <link>https://1wind.cn/blog/Redis基础篇</link>
+    <guid>https://1wind.cn/blog/Redis基础篇</guid>
+    <pubDate>Sat, 26 Aug 2023 16:00:00 GMT</pubDate>
+    <description><![CDATA[初识Redis  认识NoSQL  !image-20230826191849828  SQL的全称是结构化...]]></description>
+  </item>
+  <item>
+    <title>MyBatis-Plus代码生成器</title>
+    <link>https://1wind.cn/blog/MyBatis-Plus代码生成器</link>
+    <guid>https://1wind.cn/blog/MyBatis-Plus代码生成器</guid>
+    <pubDate>Sat, 19 Aug 2023 05:18:36 GMT</pubDate>
+    <description><![CDATA[ `MyBatis-Plus-Generator`：自动生成 Controller Service Mapper/DA...]]></description>
+  </item>
+  <item>
+    <title>Postman工具</title>
+    <link>https://1wind.cn/blog/Postman工具</link>
+    <guid>https://1wind.cn/blog/Postman工具</guid>
+    <pubDate>Thu, 17 Aug 2023 00:32:01 GMT</pubDate>
+    <description><![CDATA[ 由于Postman在2018年后，就不支持浏览器版本，所以需要下载客户端再安装使用  下面以Windows为例进...]]></description>
+  </item>
+  <item>
+    <title>瑞吉外卖</title>
+    <link>https://1wind.cn/blog/瑞吉外卖</link>
+    <guid>https://1wind.cn/blog/瑞吉外卖</guid>
+    <pubDate>Sun, 13 Aug 2023 00:00:00 GMT</pubDate>
+    <description><![CDATA[  准备工作先建数据库，建表，再创建一个`SpringBoot`的工程，勾选`Spring web`、`MySql...]]></description>
+  </item>
+  <item>
+    <title>瑞吉外卖优化</title>
+    <link>https://1wind.cn/blog/瑞吉外卖优化</link>
+    <guid>https://1wind.cn/blog/瑞吉外卖优化</guid>
+    <pubDate>Sun, 13 Aug 2023 00:00:00 GMT</pubDate>
+    <description><![CDATA[ 缓存优化  使用Git管理代码  先让IDEA绑定`Github`，在vcs下选择创建一个git仓库，并选择...]]></description>
+  </item>
+  <item>
+    <title>Git工具</title>
+    <link>https://1wind.cn/blog/Git</link>
+    <guid>https://1wind.cn/blog/Git</guid>
+    <pubDate>Sat, 12 Aug 2023 16:00:00 GMT</pubDate>
+    <description><![CDATA[ 1、Git概述Git是一个分布式版本控制工具，主要用于管理开发过程中的源代码文件（Java类、xml文件、html...]]></description>
+  </item>
+  <item>
+    <title>Redis入门</title>
+    <link>https://1wind.cn/blog/Redis入门</link>
+    <guid>https://1wind.cn/blog/Redis入门</guid>
+    <pubDate>Sat, 12 Aug 2023 16:00:00 GMT</pubDate>
+    <description><![CDATA[ Redis入门Redis是一个基于内存的`key-value`结构数据库基于内存存储，读写性能高适合存储热点数...]]></description>
+  </item>
+</channel>
+</rss>

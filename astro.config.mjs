@@ -12,5 +12,10 @@ export default defineConfig({
   // 启用客户端路由
   prefetch: {
     defaultStrategy: 'hover'
+  },
+  // 服务器配置，修改端口以解决权限问题
+  server: {
+    port: 3000,
+    host: true
   }
 });
