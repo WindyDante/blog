@@ -9,7 +9,8 @@
     "dev": "npm run generate-rss && astro dev",
     "build": "npm run generate-rss && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "blog": "node scripts/new-post.js"
   },
   "dependencies": {
     "@astrojs/vue": "^4.0.8",

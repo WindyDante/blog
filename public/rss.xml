@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="rss-style.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>东风</title>
@@ -6,6 +6,13 @@
   <description>东风的个人博客</description>
   <language>zh-cn</language>
   <atom:link href="https://1wind.cn/rss.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>RSS美化</title>
+    <link>https://1wind.cn/blog/RSS美化</link>
+    <guid>https://1wind.cn/blog/RSS美化</guid>
+    <pubDate>Thu, 29 May 2025 12:21:23 GMT</pubDate>
+    <description><![CDATA[ RSS,高效率的阅读方式 它的全称是`简易内容聚合`，是一个让你在很多地方都能订阅各种各样感兴趣的工具 我们可以通过一...]]></description>
+  </item>
   <item>
     <title>数据结构</title>
     <link>https://1wind.cn/blog/数据结构</link>

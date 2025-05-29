@@ -18,7 +18,7 @@ export function generateRSS(siteUrl = 'https://1wind.cn', siteName = '东风') {
   siteUrl = siteUrl.replace(/\/$/, '');
   
   // RSS头部
-  let rss = `<?xml version="1.0" encoding="UTF-8"?>
+  let rss = `<?xml-stylesheet type="text/xsl" href="rss-style.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>${siteName}</title>
