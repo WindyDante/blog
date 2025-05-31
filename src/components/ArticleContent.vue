@@ -42,6 +42,7 @@ export default {
   },
   mounted() {
     this.setupImageLoading();
+    this.setupCodeBlockCollapse();
   },
   methods: {
     setupImageLoading() {
@@ -68,7 +69,6 @@ export default {
             img.classList.add('error');
             spinner.innerHTML = `
               <div class="error-icon">❌</div>
-              <div class="error-text">图片加载失败</div>
             `;
           });
 
@@ -78,6 +78,43 @@ export default {
             img.classList.add('loaded');
             spinner.style.display = 'none';
           }
+        });
+      });
+    },
+    setupCodeBlockCollapse() {
+      this.$nextTick(() => {
+        // 查找所有带收起功能的代码块容器
+        const codeBlockContainers = this.$refs.articleContent.querySelectorAll('.code-block-container.collapsible');
+
+        codeBlockContainers.forEach(container => {
+          const toggleButton = container.querySelector('.code-block-toggle');
+          const codeContent = container.querySelector('.code-content');
+          const toggleIcon = container.querySelector('.toggle-icon');
+          const toggleText = container.querySelector('.toggle-text');
+
+          if (!toggleButton || !codeContent || !toggleIcon || !toggleText) return;
+
+          // 默认收起状态（超过15行的代码块默认收起）
+          const lineCount = parseInt(container.dataset.lines);
+          if (lineCount > 15) {
+            container.classList.add('collapsed');
+            toggleText.textContent = '展开';
+          }
+
+          // 点击事件处理
+          toggleButton.addEventListener('click', () => {
+            const isCollapsed = container.classList.contains('collapsed');
+
+            if (isCollapsed) {
+              // 展开
+              container.classList.remove('collapsed');
+              toggleText.textContent = '收起';
+            } else {
+              // 收起
+              container.classList.add('collapsed');
+              toggleText.textContent = '展开';
+            }
+          });
         });
       });
     }
@@ -193,5 +230,64 @@ export default {
 .article-content :deep(pre code) {
   background-color: transparent;
   padding: 0;
+}
+
+.code-collapse-button {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  padding: 0;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.code-collapse-button:hover {
+  color: var(--color-primary-dark);
+}
+
+/* 新增样式 */
+.code-block-container {
+  margin: 1.5rem 0;
+}
+
+.code-block-toggle {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.code-block-toggle .toggle-icon {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.code-block-container.collapsed .toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.code-content {
+  padding: 1rem;
+  background-color: var(--color-border);
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+.code-content.collapsed {
+  max-height: 15em;
+  overflow: hidden;
+}
+
+.code-content.expanded {
+  max-height: none;
 }
 </style>

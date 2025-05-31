@@ -60,6 +60,99 @@
   margin-bottom: 1em;
 }
 
+/* 代码块收起功能样式 */
+.markdown-content .code-block-container {
+  position: relative;
+  margin-bottom: 1em;
+  border-radius: 4px;
+  background-color: var(--color-bg-secondary);
+}
+
+.markdown-content .code-block-container.collapsible {
+  border: 1px solid var(--color-border);
+}
+
+.markdown-content .code-block-header {
+  position: relative;
+  padding: 0.5em 1em;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 40px;
+}
+
+.markdown-content .code-block-language {
+  font-size: 0.8em;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.markdown-content .code-block-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 0.75em;
+  color: var(--color-text-light);
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.markdown-content .code-block-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--color-text);
+}
+
+.markdown-content .code-block-toggle .toggle-icon {
+  transition: transform 0.2s ease;
+  font-size: 0.8em;
+}
+
+.markdown-content .code-block-container.collapsed .code-block-toggle .toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.markdown-content .code-block-container .code-content {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.markdown-content .code-block-container.collapsed .code-content {
+  max-height: 0;
+  opacity: 0;
+}
+
+.markdown-content .code-block-container:not(.collapsed) .code-content {
+  max-height: none;
+  opacity: 1;
+}
+
+.markdown-content .code-block-container pre {
+  margin: 0;
+  border-radius: 0 0 4px 4px;
+  background-color: var(--color-bg-secondary);
+}
+
+.markdown-content .code-block-container.collapsible pre {
+  border-radius: 0;
+}
+
+/* 非收起状态的代码块保持原样 */
+.markdown-content pre:not(.in-container) {
+  background-color: var(--color-bg-secondary);
+  border-radius: 4px;
+  padding: 1em;
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+
 .markdown-content code {
   font-family: monospace;
   background-color: var(--color-bg-secondary);

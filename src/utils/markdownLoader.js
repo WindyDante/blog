@@ -62,7 +62,30 @@ function getMarkdownContent(content) {
   const codeBlocks = [];
   html = html.replace(/```([\s\S]*?)```/g, function(match, code) {
     const placeholder = `__CODE_BLOCK_${codeBlocks.length}__`;
-    codeBlocks.push(code.trim());
+    
+    // 解析代码块内容和语言
+    const lines = code.trim().split('\n');
+    const firstLine = lines[0] || '';
+    let language = '';
+    let codeContent = code.trim();
+    
+    // 检查第一行是否为语言标识
+    if (firstLine && !firstLine.includes(' ') && firstLine.length < 20) {
+      const possibleLanguages = ['javascript', 'js', 'typescript', 'ts', 'python', 'java', 'c', 'cpp', 'html', 'css', 'scss', 'vue', 'jsx', 'php', 'go', 'rust', 'sql', 'json', 'xml', 'yaml', 'bash', 'shell', 'markdown', 'md'];
+      if (possibleLanguages.includes(firstLine.toLowerCase()) || firstLine.match(/^[a-zA-Z]+$/)) {
+        language = firstLine;
+        codeContent = lines.slice(1).join('\n');
+      }
+    }
+    
+    // 计算代码行数
+    const lineCount = codeContent.split('\n').length;
+    
+    codeBlocks.push({
+      code: codeContent,
+      language: language,
+      lineCount: lineCount
+    });
     return placeholder;
   })
     
@@ -126,14 +149,42 @@ function getMarkdownContent(content) {
   }
   
   // 还原代码块
-  codeBlocks.forEach((code, index) => {
+  codeBlocks.forEach((codeBlock, index) => {
     // 对代码内容进行HTML特殊字符转义，防止被浏览器解析
     const escapeHtml = str => str.replace(/&/g, '&amp;')
                                  .replace(/</g, '&lt;')
                                  .replace(/>/g, '&gt;')
                                  .replace(/"/g, '&quot;')
                                  .replace(/'/g, '&#39;');
-    html = html.replace(`__CODE_BLOCK_${index}__`, `<pre><code>${escapeHtml(code)}</code></pre>`);
+    
+    const { code, language, lineCount } = codeBlock;
+    const escapedCode = escapeHtml(code);
+    
+    // 判断是否需要添加收起功能（超过15行的代码块）
+    const needsCollapse = lineCount > 15;
+    
+    if (needsCollapse) {
+      // 生成带收起功能的代码块
+      const languageDisplay = language ? language : '代码';
+      const codeBlockHtml = `
+        <div class="code-block-container collapsible" data-lines="${lineCount}">
+          <div class="code-block-header">
+            <span class="code-block-language">${languageDisplay} (${lineCount} 行)</span>
+            <button class="code-block-toggle">
+              <span class="toggle-icon">▼</span>
+              <span class="toggle-text">收起</span>
+            </button>
+          </div>
+          <div class="code-content">
+            <pre class="in-container"><code>${escapedCode}</code></pre>
+          </div>
+        </div>
+      `;
+      html = html.replace(`__CODE_BLOCK_${index}__`, codeBlockHtml);
+    } else {
+      // 生成普通代码块
+      html = html.replace(`__CODE_BLOCK_${index}__`, `<pre><code>${escapedCode}</code></pre>`);
+    }
   })
   
   return html;
