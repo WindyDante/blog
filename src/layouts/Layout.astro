@@ -33,6 +33,67 @@ const { title, description = "A minimalist blog" } = Astro.props;
     <div class="container">
       <slot />
     </div>
+    <script>
+      // 图片加载处理脚本
+      document.addEventListener('DOMContentLoaded', function() {
+        // 处理所有已存在的图片
+        setupImageLoading();
+        
+        // 监听动态插入的内容
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+              if (node.nodeType === Node.ELEMENT_NODE) {
+                const images = node.querySelectorAll ? node.querySelectorAll('img') : [];
+                images.forEach(setupSingleImage);
+              }
+            });
+          });
+        });
+        
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+      });
+
+      function setupImageLoading() {
+        const images = document.querySelectorAll('img');
+        images.forEach(setupSingleImage);
+      }
+
+      function setupSingleImage(img) {
+        const wrapper = img.closest('.image-loading-wrapper');
+        const spinner = wrapper?.querySelector('.image-loading-spinner');
+        
+        if (!wrapper || !spinner) return;
+        
+        // 如果已经设置过事件监听器，跳过
+        if (img.dataset.loadingSetup) return;
+        img.dataset.loadingSetup = 'true';
+        
+        // 图片加载完成事件
+        img.addEventListener('load', function() {
+          img.classList.remove('loading');
+          img.classList.add('loaded');
+          if (spinner) spinner.style.display = 'none';
+        });
+        
+        // 图片加载失败事件
+        img.addEventListener('error', function() {
+          img.classList.remove('loading');
+          img.classList.add('error');
+          if (spinner) spinner.style.display = 'none';
+        });
+        
+        // 如果图片已经加载完成（缓存情况）
+        if (img.complete && img.naturalHeight !== 0) {
+          img.classList.remove('loading');
+          img.classList.add('loaded');
+          if (spinner) spinner.style.display = 'none';
+        }
+      }
+    </script>
   </body>
 </html>
 

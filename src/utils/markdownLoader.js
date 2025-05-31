@@ -74,6 +74,19 @@ function getMarkdownContent(content) {
     .replace(/^##### (.+)$/gm, '<h5>$1</h5>')
     .replace(/^###### (.+)$/gm, '<h6>$1</h6>')
     
+    // 转换图片（必须在链接之前处理）
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function(match, alt, src) {
+      // 为图片添加加载动画包装，只保留动画不要文字
+      return `<div class="image-loading-wrapper">
+        <div class="image-loading-spinner">
+          <div class="spinner"></div>
+        </div>
+        <div class="image-container">
+          <img src="${src}" alt="${alt}" class="loading" loading="lazy" />
+        </div>
+      </div>`;
+    })
+    
     // 转换粗体和斜体
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')

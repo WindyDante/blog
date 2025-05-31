@@ -7,7 +7,7 @@
         <span v-for="(tag, index) in tags" :key="index" class="article-tag">{{ tag }}</span>
       </div>
     </header>
-    <div class="article-content">
+    <div class="article-content" ref="articleContent">
       <slot></slot>
     </div>
   </article>
@@ -39,6 +39,48 @@ export default {
         day: 'numeric'
       });
     }
+  },
+  mounted() {
+    this.setupImageLoading();
+  },
+  methods: {
+    setupImageLoading() {
+      // 使用nextTick确保DOM已经更新
+      this.$nextTick(() => {
+        const images = this.$refs.articleContent.querySelectorAll('img');
+
+        images.forEach(img => {
+          const wrapper = img.closest('.image-loading-wrapper');
+          const spinner = wrapper?.querySelector('.image-loading-spinner');
+
+          if (!wrapper || !spinner) return;
+
+          // 图片加载完成事件
+          img.addEventListener('load', () => {
+            img.classList.remove('loading');
+            img.classList.add('loaded');
+            spinner.style.display = 'none';
+          });
+
+          // 图片加载失败事件
+          img.addEventListener('error', () => {
+            img.classList.remove('loading');
+            img.classList.add('error');
+            spinner.innerHTML = `
+              <div class="error-icon">❌</div>
+              <div class="error-text">图片加载失败</div>
+            `;
+          });
+
+          // 如果图片已经加载完成（缓存情况）
+          if (img.complete && img.naturalHeight !== 0) {
+            img.classList.remove('loading');
+            img.classList.add('loaded');
+            spinner.style.display = 'none';
+          }
+        });
+      });
+    }
   }
 }
 </script>
@@ -57,10 +99,12 @@ export default {
     max-width: 100vw;
     border-radius: 7px;
   }
+
   .article-title {
     font-size: 1.25rem;
     word-break: break-all;
   }
+
   .article-content {
     font-size: 1rem;
     line-height: 1.7;
