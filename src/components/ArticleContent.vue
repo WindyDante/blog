@@ -7,7 +7,12 @@
         <span v-for="(tag, index) in tags" :key="index" class="article-tag">{{ tag }}</span>
       </div>
     </header>
-    <div class="article-content" ref="articleContent">
+    
+    <!-- AI摘要显示区域 -->
+    <div id="summary-box"></div>
+    
+    <!-- 文章内容区域，添加id供AI脚本识别 -->
+    <div id="my-article" class="article-content" ref="articleContent">
       <slot></slot>
     </div>
   </article>
@@ -43,6 +48,7 @@ export default {
   mounted() {
     this.setupImageLoading();
     this.setupCodeBlockCollapse();
+    this.loadAISummaryScript();
   },
   methods: {
     setupImageLoading() {
@@ -117,7 +123,94 @@ export default {
           });
         });
       });
-    }
+    },
+    loadAISummaryScript() {
+      // 检查脚本是否已经加载，避免重复加载
+      if (document.querySelector('script[src*="widget.js"]')) {
+        console.log('AI摘要脚本已存在');
+        return;
+      }
+
+      // 等待DOM完全渲染
+      this.$nextTick(() => {
+        // 确认目标元素存在
+        const targetElement = document.getElementById('my-article');
+        const summaryElement = document.getElementById('summary-box');
+        
+        if (!targetElement || !summaryElement) {
+          console.error('目标元素未找到');
+          return;
+        }
+
+        console.log('开始加载AI摘要脚本...');
+
+        // 设置全局配置
+        window.AI_WIDGET_CONFIG = {
+          backendPrefix: 'https://summary.1wind.cn',
+          baseUrl: 'https://summary.1wind.cn',
+          staticPath: 'https://summary.1wind.cn/static/'
+        };
+
+        // 先加载CSS样式
+        const cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        cssLink.href = 'https://summary.1wind.cn/static/widget.css';
+        cssLink.onload = () => {
+          console.log('AI摘要CSS加载成功');
+        };
+        cssLink.onerror = (error) => {
+          console.error('AI摘要CSS加载失败:', error);
+        };
+        document.head.appendChild(cssLink);
+
+        // 创建script元素
+        const script = document.createElement('script');
+        script.src = 'https://summary.1wind.cn/static/widget.js';
+        script.setAttribute('data-selector', '#my-article');
+        script.setAttribute('data-target', 'summary-box');
+        script.setAttribute('data-backend-prefix', 'https://summary.1wind.cn');
+        script.setAttribute('data-theme', 'light');
+        script.setAttribute('data-show-stats', 'true');
+        script.setAttribute('data-show-theme-toggle', 'true');
+        script.setAttribute('data-show-header', 'true');
+        script.setAttribute('data-show-footer', 'true');
+        script.setAttribute('data-badge-text', '东风学习摘要');
+        
+        // 添加加载回调
+        script.onload = () => {
+          console.log('AI摘要脚本加载成功');
+        };
+        
+        script.onerror = (error) => {
+          console.error('AI摘要脚本加载失败:', error);
+        };
+        
+        // 将脚本添加到页面
+        document.head.appendChild(script);
+      });
+    },
+
+    triggerAISummary() {
+      // 尝试手动触发AI摘要生成
+      try {
+        // 检查是否有全局的初始化函数
+        if (window.initAISummary) {
+          window.initAISummary();
+        } else if (window.AISummaryWidget) {
+          new window.AISummaryWidget({
+            selector: '#my-article',
+            target: 'summary-box',
+            backendPrefix: 'https://summary.1wind.cn'
+          });
+        } else {
+          // 触发DOMContentLoaded事件，可能会重新初始化脚本
+          const event = new Event('DOMContentLoaded');
+          document.dispatchEvent(event);
+        }
+      } catch (error) {
+        console.error('手动触发AI摘要失败:', error);
+      }
+    },
   }
 }
 </script>

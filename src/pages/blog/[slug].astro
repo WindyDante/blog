@@ -1,33 +1,51 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/Navigation.vue';
 import ArticleContent from '../../components/ArticleContent.vue';
-import Footer from '../../components/Footer.vue';
 import { posts } from '../../data/posts.js';
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
   return posts.map(post => ({
     params: { slug: post.slug },
-    props: { post },
+    props: { post }
   }));
 }
 
 const { post } = Astro.props;
-const siteName = "EastWind";
 ---
 
-<Layout title={`${post.title} | ${siteName}`} description={post.excerpt}>
-  <Navigation siteName={siteName} client:load />
-  
+<Layout title={post.title} description={post.excerpt}>
   <main>
-    <a href="/blog" class="back-link" onclick="window.location.href='/blog'; return false;">← Back to all posts</a>
+    <div class="back-link">
+      <a href="/blog">← Back to all posts</a>
+    </div>
     
-    <ArticleContent title={post.title} date={post.date} tags={post.tags} client:visible>
-      <div set:html={post.content} />
+    <ArticleContent 
+      title={post.title} 
+      date={post.date} 
+      tags={post.tags}
+      client:load
+    >
+      <Fragment set:html={post.content} />
     </ArticleContent>
   </main>
+
+  <!-- 简化的AI摘要脚本加载 -->
+  <script 
+    id="ai-summary-widget"
+    src="https://summary.1wind.cn/static/widget.js" 
+    data-selector="#my-article" 
+    data-target="summary-box"
+    data-backend-prefix="https://summary.1wind.cn" 
+    data-theme="light" 
+    data-show-stats="true"
+    data-show-theme-toggle="true" 
+    data-show-header="true" 
+    data-show-footer="true" 
+    data-badge-text="东风学习摘要">
+  </script>
   
-  <Footer siteName={siteName} client:visible />
+  <!-- CSS样式加载 -->
+  <link rel="stylesheet" href="https://summary.1wind.cn/static/widget.css">
 </Layout>
 
 <style>

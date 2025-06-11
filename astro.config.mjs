@@ -17,5 +17,9 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true
+  },
+  // 禁用开发工具栏以避免CustomElementRegistry重复注册错误
+  devToolbar: {
+    enabled: false
   }
 });
